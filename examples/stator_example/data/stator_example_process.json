@@ -1,0 +1,93 @@
+{
+    "order": [
+        {
+            "name": "stator",
+            "priority": 10,
+            "storage": 10,
+            "source": "stator_source",
+            "station": ["assemble_stator", "dry_glue", "welding", "quality_check"],
+            "function": ["assemble_stator", "dry_glue", "weld_connections", "check_quality"],
+            "demand": [[1, 1], 1, 1, 1],
+            "component": [["housing", "contact_carrier"], [], [], []],
+            "x1_dist": ["u", 1.9, 2.1],
+            "x2_dist": ["u", 1.9, 2.1],
+            "y1_dist": ["u", 1.9, 2.1],
+            "y2_dist": ["u", 1.9, 2.1],
+            "el_resistance_mOhm": ["f", 0],
+            "glue_weight": ["n", 8.0, 0.18]
+        },
+        {
+            "name": "housing",
+            "priority": 10,
+            "storage": 10,
+            "source": "preassembly",
+            "station": [],
+            "function": [],
+            "demand": [],
+            "component": []
+        },
+        {
+            "name": "contact_carrier",
+            "priority": 10,
+            "storage": 10,
+            "source": "preassembly",
+            "station": ["apply_glue"],
+            "function": ["apply_glue"],
+            "demand": [1],
+            "component": [[]],
+            "glue_weight": ["n", 8.0, 0.21]
+        }
+    ],
+    "station": [
+        {
+            "name": "assemble_stator",
+            "capacity": 1,
+            "measurement": false
+        },
+        {
+            "name": "dry_glue",
+            "capacity": 1,
+            "storage": 10,
+            "measurement": false,
+            "temperature": ["f", 22.0
+            ]
+        },
+        {
+            "name": "welding",
+            "capacity": 1,
+            "storage": 10,
+            "measurement": false,
+            "a_voltage_V": ["n", 1.48, 0.23],
+            "b_max_voltage_V": ["n", 2.21, 0.15],
+            "c_current_A": ["n", 3657, 124],
+            "d_resistance_mOhm": ["n", 452, 34.436],
+            "e_welding_energy_Ws": ["n", 3312, 0.23],
+            "f_force_one_N": ["n", 184, 7.28],
+            "g_force_two_N": ["n", 186, 8.12],
+            "h_movement_one_um": ["n", 424, 11.49],
+            "i_movement_two_um": ["n", 422, 12.38],
+            "j_welding_time_ms": ["n", 813, 51.34],
+            "k_wear": ["f", 0.0]
+        },
+        {
+            "name": "quality_check",
+            "capacity": 1,
+            "storage": 10,
+            "measurement": true
+        },
+        {
+            "name": "apply_glue",
+            "capacity": 1,
+            "storage": 10,
+            "measurement": false,
+            "glue_temperature": ["f", 20.0],
+            "glue_time": ["u", 3.76, 4.79],
+            "glue_limit": ["f", 0.0015],
+            "flow_rate": ["n", 173.0, 0.18]
+        }
+    ],
+    "factory": {
+        "temperature": ["f",20],
+        "function": ["temperature_func"]
+    }
+}
