@@ -6,7 +6,7 @@ st.sidebar.title("Production line configurations")
 
 #col1, col2 = st.sidebar.columns(2)
 #machine_number = 0
-#with col1:
+#with cstreol1:
 #    add_machine_pressed = st.sidebar.button('add Machine')
 #    if add_machine_pressed:
 #        machine_number = machine_number + 1
